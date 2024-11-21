@@ -1,0 +1,19 @@
+
+menu = ("Stir Fry: £7.55 (v)", " Fajitas: £6.85", " Halloumi fries: £3.55 (v)", " T-Bone steak:  £19.99", " Toad in the hole: £8.99", " Veg Lasagne: £7.25 (v)", " Borscht: £5.99")
+
+answer = input(print("Welcome what would you like press v if you want the vegan only ", menu))
+print(answer)
+
+if answer =="v" or answer == "V":
+    print("Stir Fry: £7.55 (v)", "Halloumi fries: £3.55 (v)", " Veg Lasagne: £7.25 (v)")
+else:
+    print("")
+
+price = float(input("What price range would you prefer:"))
+
+if price <7.55:
+    print("You can have: Stir Fry: £7.55 (v)", "Halloumi fries: £3.55 (v)", " Veg Lasagne: £7.25 (v)")
+elif price <7.25:
+    print("You can have: Halloumi fries: £3.55 (v)", " Veg Lasagne: £7.25 (v)")
+else:
+    print("You can have: Halloumi fries: £3.55")
