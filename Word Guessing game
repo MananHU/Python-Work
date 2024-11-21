@@ -1,0 +1,17 @@
+def user_guesses():
+    word  =  "Tree"
+    print("Hint: Nature")
+    guess =  input("Enter the secret word: ")
+    guess_count = 0
+
+    while guess != word:
+        print("Wrong")
+        word  =  "Tree"
+        print("Hint: Nature")
+        guess =  input("Enter the secret word: ")
+        guess_count = 0
+    else:
+        print("Correct! it took you")
+
+user_guesses()
+    
