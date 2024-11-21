@@ -1,0 +1,17 @@
+
+number = 1233
+answer = int(input("Enter the  number:"))
+counter = ""
+
+for answer  in range(1,answer+1):
+    print(answer)
+    answer = int(input("Enter the  number:"))
+    if answer >= 1 :
+        counter = answer+1
+    elif answer   >=2:
+        counter = answer+2
+    elif answer >=3:
+        counter = answer+3
+    else:
+        print(".")
+print("Failed")
