@@ -1,0 +1,18 @@
+
+
+def calculate_eggs():
+    chocolate = int(input("Enter the number of chocolate eggs per basket: "))
+    gold = int(input("Enter the number of gold eggs per basket: "))
+    silver = int(input("Enter the number of silver eggs per basket: "))
+    
+    baskets = int(input("Enter the number of baskets: "))
+
+    eggs_per_basket = chocolate + gold + silver
+
+    total_eggs = eggs_per_basket * baskets
+    
+
+    print(f"The total number of eggs needed is: {total_eggs}")
+
+
+calculate_eggs()
