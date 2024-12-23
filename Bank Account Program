@@ -1,0 +1,52 @@
+
+def show_balance():
+    print(f"Your current balance is: ${balance:.2f}")
+
+def deposit():
+    global balance
+    try:
+        add = float(input("How much would you like to deposit?: "))
+        if add < 0:
+            print("You cannot deposit a negative amount.")
+        else:
+            balance += add
+            print(f"${add:.2f} has been added to your account. New balance: ${balance:.2f}")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+def withdraw():
+    global balance
+    try:
+        minus = float(input("How much would you like to withdraw?: "))
+        if minus < 0:
+            print("You cannot withdraw a negative amount.")
+        elif minus > balance:
+            print("Insufficient funds. Transaction denied.")
+        else:
+            balance -= minus
+            print(f"${minus:.2f} has been withdrawn from your account. New balance: ${balance:.2f}")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+balance = 0.0
+is_running = True
+
+while is_running:
+    print("\nBanking Program")
+    print("1. Show Balance")
+    print("2. Deposit")
+    print("3. Withdraw")
+    print("4. Exit")
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        show_balance()
+    elif choice == "2":
+        deposit()
+    elif choice == "3":
+        withdraw()
+    elif choice == "4":
+        is_running = False
+        print("Thank you for using the Banking Program. Goodbye!")
+    else:
+        print("Invalid choice. Please try again.")
