@@ -1,0 +1,76 @@
+print("Welcome to the shopping cart program!")
+
+def view_cart(cart):
+    """Displays the current items in the cart."""
+    if not cart:
+        print("Your cart is empty.")
+    else:
+        print("\nShopping Cart:")
+        for index, item in enumerate(cart, start=1):
+            print(f"{index}. {item['name']} - Quantity: {item['quantity']}, Price: ${item['price']:.2f}")
+        total = sum(item['quantity'] * item['price'] for item in cart)
+        print(f"Total Cost: ${total:.2f}")
+
+def add_item(cart):
+    """Add an item to the shopping cart."""
+    name = input("Enter the item name: ")
+    try:
+        quantity = int(input("Enter the quantity: "))
+        price = float(input("Enter the price per item: "))
+        if quantity < 1 or price < 0:
+            print("Quantity must be positive, and price cannot be negative.")
+        else:
+            cart.append({'name': name, 'quantity': quantity, 'price': price})
+            print(f"{name} has been added to your cart.")
+    except ValueError:
+        print("Invalid input. Please enter numbers for quantity and price.")
+
+def remove_item(cart):
+    """Remove an item from the shopping cart."""
+    if not cart:
+        print("Your cart is empty.")
+        return
+
+    view_cart(cart)
+    try:
+        index = int(input("Enter the item number to remove: ")) - 1
+        if 0 <= index < len(cart):
+            removed_item = cart.pop(index)
+            print(f"{removed_item['name']} has been removed from your cart.")
+        else:
+            print("Invalid item number.")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+def checkout(cart):
+    """Checkout and exit the program."""
+    if not cart:
+        print("Your cart is empty. Nothing to checkout.")
+    else:
+        total = sum(item['quantity'] * item['price'] for item in cart)
+        print(f"Your final total is: ${total:.2f}")
+        print("Thank you for shopping with us!")
+    return False  # Exit the loop
+
+# Main Program
+cart = []
+is_running = True
+
+while is_running:
+    print("\n------------Shopping Cart Program------------")
+    print("1. View Cart")
+    print("2. Add Items")
+    print("3. Remove Items")
+    print("4. Checkout")
+
+    choice = input("Enter your choice: ")
+    if choice == "1":
+        view_cart(cart)
+    elif choice == "2":
+        add_item(cart)
+    elif choice == "3":
+        remove_item(cart)
+    elif choice == "4":
+        is_running = checkout(cart)
+    else:
+        print("Invalid choice. Please try again.")
