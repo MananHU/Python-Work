@@ -1,0 +1,35 @@
+
+tasks = []
+def view_tasks():
+    global tasks
+    print(tasks)
+
+def add_tasks():
+    new_task = input("What would you like  to add: ")
+    tasks.append(new_task)
+
+def remove_tasks():
+    removed_task = input("What task would you like to remove:")
+    tasks.remove(removed_task)
+
+def exit():
+    pass
+
+is_running = True
+while is_running:
+    print("------------Welcome to the To Do List------------")
+    print("Enter 1  to view your tasks")
+    print("Enter 2 to add tasks")
+    print("Enter 3 to remove tasks")
+    print("Enter 4 to exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        view_tasks()
+    elif choice =="2":
+        add_tasks()
+    elif choice =="3":
+        remove_tasks()
+    elif choice =="4":
+        break
